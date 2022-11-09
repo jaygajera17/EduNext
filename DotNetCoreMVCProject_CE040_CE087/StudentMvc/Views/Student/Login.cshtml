@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<!--Correct username: invitado / pass: hgm2015-->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Validation Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Login Form</h1>
+        <span>Name:admin</span>
+        <span>password:123</span>
+        <div class="row">
+            <div class="col-md-4">
+                <form action="#" method="post" class="form-box" id="form">
+                    <div class="form-group">
+                        <label>Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" id="pass" name="pass" class="form-control" placeholder="Enter Password" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" id="submit" name="pass" class="btn btn-md btn-info" value="Login" />
+                        <span id="Required" style="color:#ff0000;"></span>
+                    </div>
+                    <span id="error" style="color:#ff0000"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+</body>
+</html>
+
+<style>
+    h1 {
+        font-size: 25px;
+        margin: 10px 0;
+    }
+
+    .form-box {
+        border: 1px solid #d3d3d3;
+        padding: 20px;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            var name = $("#name").val();
+            var pass = $("#pass").val();
+            if (name == '' || pass == '') {
+                $("#Required").html('All Feild Are Required').css('color', 'red');
+            } else if (name == 'admin' && pass == '123') {
+                $("#form").html('<h4>User Login Successfully</h4><a href="/">Go</a>').css('color', 'green');
+            } else {
+                $("#error").html('User Are Not Valid');
+            }
+        });
+    });
+</script>

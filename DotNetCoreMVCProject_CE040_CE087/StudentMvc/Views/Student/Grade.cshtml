@@ -1,0 +1,28 @@
+﻿
+@model List<StudentMvc.Context.tbl_Student>
+@{
+    ViewBag.Title = "Grade";
+}
+<table class="table table-hover">
+    <tr>
+        <th>Name</th>
+        <th>Result</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+           
+            <td>@item.Result</td>
+            <td>
+                <a href="@Url.Action("Student",new {item.Result})" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+
+
